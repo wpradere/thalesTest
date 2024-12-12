@@ -31,7 +31,6 @@ public class EmployeeServiceImpl extends AbstractEmployee implements EmployyeSer
         ResponseEntity<Object> response = restTemplate.getForEntity(uri,Object.class);
         try {
             employeesList = objectMapper.convertValue(response.getBody(), new TypeReference<List<Employee>>(){});
-            System.out.println(employeesList.get(0).getEmployeeName());
 
         }catch (Exception e){
             System.out.println("Error al mapear la respuesta a empleados   " + e);
