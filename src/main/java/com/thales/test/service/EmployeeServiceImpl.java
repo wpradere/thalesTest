@@ -1,27 +1,21 @@
 package com.thales.test.service;
 
-import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thales.test.model.Dto.Employee;
 import com.thales.test.model.Dto.EmployeeSalary;
-import com.thales.test.model.Dto.ResponseEmployee;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
-@Slf4j
+
 @Service
-public class EmployeeServiceImpl extends AbstractEmployee implements EmployyeService{
+public class EmployeeServiceImpl extends AbstractEmployee implements EmployeeService {
 
     public List<Employee> callServices(){
         List<Employee> employeesList = null;
@@ -74,7 +68,7 @@ public class EmployeeServiceImpl extends AbstractEmployee implements EmployyeSer
     }
 
     @Override
-    public Employee getById(int id) {
+    public Optional<Employee> getById(String id) {
         Employee employee = null;
         String uri = baseUrl+"/"+id;
         ObjectMapper objectMapper = new ObjectMapper();
@@ -86,7 +80,7 @@ public class EmployeeServiceImpl extends AbstractEmployee implements EmployyeSer
         }catch (Exception e){
             System.out.println("Error al mapear la respuesta a empleados  o el empleado no existe ");
         }
-        return employee;
+        return Optional.ofNullable(employee);
     }
 
 

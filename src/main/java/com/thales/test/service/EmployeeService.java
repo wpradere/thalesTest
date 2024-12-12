@@ -2,12 +2,12 @@ package com.thales.test.service;
 
 import com.thales.test.model.Dto.Employee;
 import com.thales.test.model.Dto.EmployeeSalary;
-import com.thales.test.model.Dto.ResponseEmployee;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface EmployyeService {
+public interface EmployeeService {
     List <Employee> getAll();
     List<EmployeeSalary> annualSalary();
-    Employee getById(int id);
+    Optional<Employee> getById(String id);
 }
