@@ -12,7 +12,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/data")
-@Component
 public class EmployeeController {
 
     private final EmployeeServiceImpl employeeService;
