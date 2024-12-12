@@ -5,12 +5,13 @@ import com.thales.test.model.Dto.EmployeeSalary;
 import com.thales.test.service.EmployeeServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/data")
 public class EmployeeController {
 
